@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Gedung Tammuan Mali' - Tana Toraja</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        toraja: {
+                            gold: '#D4AF37',
+                            darkGold: '#AA7C11',
+                            brown: '#3E2723',
+                            lightBrown: '#5D4037',
+                            cream: '#FDFBF7',
+                            accent: '#8D6E63'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .toraja-pattern {
+            background-color: #3E2723;
+            background-image: radial-gradient(#D4AF37 0.75px, transparent 0.75px), radial-gradient(#D4AF37 0.75px, #3E2723 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-toraja-gold selection:text-white">
+
+    <nav class="bg-stone-900 text-stone-100 sticky top-0 z-50 shadow-md border-b border-toraja-gold/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-toraja-gold flex items-center justify-center text-stone-900 font-serif font-bold text-xl shadow">
+                        TM
+                    </div>
+                    <div>
+                        <span class="font-serif text-lg md:text-xl font-bold tracking-wide text-toraja-gold block">Gedung Tammuan Mali'</span>
+                        <span class="text-xs text-stone-400 tracking-wider uppercase">Kabupaten Tana Toraja</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#beranda" class="hover:text-toraja-gold transition">Beranda</a>
+                    <a href="#fasilitas" class="hover:text-toraja-gold transition">Fasilitas</a>
+                    <a href="#galeri" class="hover:text-toraja-gold transition">Galeri</a>
+                    <a href="#kalender-section" class="hover:text-toraja-gold transition">Ketersediaan Kalender</a>
+                    <a href="#booking" class="bg-toraja-gold hover:bg-toraja-darkGold text-stone-900 font-semibold px-5 py-2.5 rounded-lg shadow transition transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-calendar-check mr-2"></i> Booking Sekarang
+                    </a>
+                    <a href="javascript:void(0)" onclick="openAdminModal()" class="text-stone-300 hover:text-toraja-gold flex items-center space-x-1.5 transition font-semibold">
+                        <i class="fa-solid fa-user-shield text-toraja-gold"></i>
+                        <span>Login Admin</span>
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center space-x-3">
+                    <a href="#booking" class="bg-toraja-gold text-stone-900 text-xs font-bold px-3 py-2 rounded-lg">Booking</a>
+                    <button id="mobile-menu-btn" class="text-stone-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-900 border-t border-stone-800 px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="block py-2 hover:text-toraja-gold">Beranda</a>
+            <a href="#fasilitas" class="block py-2 hover:text-toraja-gold">Fasilitas</a>
+            <a href="#galeri" class="block py-2 hover:text-toraja-gold">Galeri</a>
+            <a href="#kalender-section" class="block py-2 hover:text-toraja-gold">Ketersediaan Kalender</a>
+            <a href="#booking" class="block py-2 text-toraja-gold font-semibold">Booking Sekarang</a>
+            <a href="javascript:void(0)" onclick="openAdminModal()" class="block py-2 text-stone-300 hover:text-toraja-gold font-semibold">
+                <i class="fa-solid fa-user-shield text-toraja-gold mr-1"></i> Login Admin
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN FRONTEND WEBSITE VIEW -->
+    <div id="frontend-view">
+        <header id="beranda" class="relative bg-stone-900 text-white overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080/3E2723/D4AF37?text=Gedung+Tammuan+Mali+Tana+Toraja');"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-stone-950 via-stone-900/80 to-transparent z-10"></div>
+            <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 flex flex-col items-start justify-center">
+                <div class="inline-flex items-center space-x-2 bg-toraja-gold/20 border border-toraja-gold/40 text-toraja-gold px-4 py-1.5 rounded-full text-xs md:text-sm font-semibold mb-6 uppercase tracking-widest">
+                    <i class="fa-solid fa-landmark"></i> Pusat Konvensi & Pertemuan Resmi
+                </div>
+                <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight max-w-3xl leading-tight mb-6">
+                    Gedung Tammuan Mali' <span class="text-toraja-gold">Kabupaten Tana Toraja</span>
+                </h1>
+                <p class="text-stone-300 text-base md:text-xl max-w-2xl mb-10 leading-relaxed font-light">
+                    Destinasi utama untuk acara pernikahan, rapat paripurna, wisuda, dan pertemuan akbar dengan sentuhan arsitektur khas Toraja yang megah dan fasilitas modern.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="#booking" class="bg-toraja-gold hover:bg-toraja-darkGold text-stone-950 font-bold px-8 py-4 rounded-xl shadow-lg transition text-center flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-calendar-plus text-lg"></i>
+                        <span>Ajukan Booking Gedung</span>
+                    </a>
+                    <a href="#kalender-section" class="bg-stone-800/80 hover:bg-stone-800 text-white border border-stone-600 font-semibold px-8 py-4 rounded-xl shadow transition text-center flex items-center justify-center space-x-3">
+                        <i class="fa-solid fa-calendar-days text-toraja-gold text-lg"></i>
+                        <span>Cek Ketersediaan Tanggal</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section id="fasilitas" class="py-20 bg-stone-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-toraja-darkGold font-semibold text-sm uppercase tracking-widest block mb-2">Fasilitas Unggulan</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900">Dirancang Untuk Kenyamanan Acara Anda</h2>
+                    <div class="w-24 h-1 bg-toraja-gold mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-stone-200 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-toraja-darkGold text-2xl mb-6 shadow-inner">
+                            <i class="fa-solid fa-users-rectangle"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Auditorium Utama Luas</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Kapasitas hingga 1.000+ undangan dengan tata ruang fleksibel, akustik profesional, dan pendingin udara menyeluruh. Tarif dasar Rp 3.500.000 / hari.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-stone-200 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-toraja-darkGold text-2xl mb-6 shadow-inner">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Area Parkir Luas & Aman</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Halaman parkir kendaraan roda empat dan roda dua yang sangat luas dilengkapi sistem keamanan dan pengawasan optimal.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-stone-200 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center text-toraja-darkGold text-2xl mb-6 shadow-inner">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Sound System & Multimedia</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Perangkat pengeras suara premium (opsional +Rp 750.000), pencahayaan panggung elegan, serta proyektor layar besar beresolusi tinggi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-toraja-darkGold font-semibold text-sm uppercase tracking-widest block mb-2">Galeri Gedung</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900">Keindahan Arsitektur & Interior</h2>
+                    <div class="w-24 h-1 bg-toraja-gold mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <div class="group relative overflow-hidden rounded-2xl shadow aspect-video bg-stone-200">
+                        <img src="https://placehold.co/600x400/3E2723/D4AF37?text=Tampak+Depan+Gedung" alt="Gedung Tammuan Mali" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                            <span class="text-white font-serif text-sm font-semibold">Tampak Depan & Ornamen Khas Toraja</span>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl shadow aspect-video bg-stone-200">
+                        <img src="https://placehold.co/600x400/5D4037/FDFBF7?text=Ruang+Utama+Auditorium" alt="Ruang Utama" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                            <span class="text-white font-serif text-sm font-semibold">Auditorium & Panggung Utama</span>
+                        </div>
+                    </div>
+                    <div class="group relative overflow-hidden rounded-2xl shadow aspect-video bg-stone-200">
+                        <img src="https://placehold.co/600x400/3E2723/D4AF37?text=Loby+Resepsionis" alt="Lobby" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                            <span class="text-white font-serif text-sm font-semibold">Lobby & Area Tamu VIP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kalender-section" class="py-20 bg-stone-100 border-t border-stone-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-toraja-darkGold font-semibold text-sm uppercase tracking-widest block mb-2">Sistem Ketersediaan & Biaya</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-900">Kalender Booking & Kalkulasi Tarif</h2>
+                    <p class="text-stone-600 mt-2">Pilih rentang tanggal acara Anda secara fleksibel. Tanggal yang disetujui admin akan otomatis terblokir.</p>
+                    <div class="w-24 h-1 bg-toraja-gold mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Interactive Calendar Widget -->
+                    <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 id="calendar-month-year" class="font-serif text-xl font-bold text-stone-900">Bulan Tahun</h3>
+                            <div class="flex space-x-2">
+                                <button onclick="changeMonth(-1)" class="w-10 h-10 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 flex items-center justify-center transition">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </button>
+                                <button onclick="changeMonth(1)" class="w-10 h-10 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 flex items-center justify-center transition">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-around text-xs text-stone-600 mb-6 bg-stone-50 p-3 rounded-xl border border-stone-200">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                                <span>Tersedia</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500 inline-block"></span>
+                                <span>Ter-booking</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+                                <span>Dipilih</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-7 gap-1 text-center font-semibold text-xs text-stone-400 mb-2">
+                            <div>Min</div><div>Sen</div><div>Sel</div><div>Rab</div><div>Kam</div><div>Jum</div><div>Sab</div>
+                        </div>
+
+                        <div id="calendar-days" class="grid grid-cols-7 gap-1.5 text-sm">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-stone-100 text-xs text-stone-500 flex items-center justify-between">
+                            <span><i class="fa-solid fa-circle-info text-toraja-darkGold mr-1"></i> Klik tanggal untuk mulai & selesai</span>
+                            <button onclick="resetSelectedDates()" class="text-stone-700 hover:text-red-600 underline font-medium">Reset Pilihan</button>
+                        </div>
+                    </div>
+
+                    <!-- Booking Form -->
+                    <div id="booking" class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-stone-200">
+                        <div class="border-b border-stone-100 pb-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div>
+                                <h3 class="font-serif text-xl font-bold text-stone-900">Formulir Pengajuan Pemesanan</h3>
+                                <p class="text-xs text-stone-500 mt-1">Lengkapi data, fasilitas tambahan, dan unggah scan surat.</p>
+                            </div>
+                            <button type="button" onclick="openTemplateModal()" class="inline-flex items-center space-x-2 bg-amber-50 hover:bg-amber-100 text-toraja-darkGold font-semibold text-xs px-3.5 py-2 rounded-xl border border-amber-200 transition">
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                                <span>Download Format Surat</span>
+                            </button>
+                        </div>
+
+                        <form id="booking-form" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Nama Pemohon / Penanggung Jawab *</label>
+                                    <input type="text" id="pemohon" required class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold transition" placeholder="Contoh: Markus Palembangan, S.Sos">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Instansi / Organisasi *</label>
+                                    <input type="text" id="instansi" required class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold transition" placeholder="Contoh: Pemkab Tana Toraja / Keluarga">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Tujuan Kegiatan / Jenis Acara *</label>
+                                    <select id="tujuan-kegiatan" required class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold transition">
+                                        <option value="">-- Pilih Tujuan Kegiatan --</option>
+                                        <option value="Resepsi Pernikahan">Resepsi Pernikahan</option>
+                                        <option value="Rapat Paripurna / Kedinasan">Rapat Paripurna / Kedinasan</option>
+                                        <option value="Wisuda / Pelepasan Siswa">Wisuda / Pelepasan Siswa</option>
+                                        <option value="Seminar / Workshop">Seminar / Workshop</option>
+                                        <option value="Acara Adat / Budaya">Acara Adat / Budaya</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Nomor WhatsApp / HP *</label>
+                                    <input type="tel" id="phone" required class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold transition" placeholder="Contoh: 081234567890">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Tanggal Mulai *</label>
+                                    <input type="date" id="start-date" required onchange="onManualDateChange()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-toraja-gold transition">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Tanggal Selesai *</label>
+                                    <input type="date" id="end-date" required onchange="onManualDateChange()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm text-stone-800 focus:outline-none focus:ring-2 focus:ring-toraja-gold transition">
+                                </div>
+                            </div>
+
+                            <!-- Additional Features (Audio & Meja) -->
+                            <div class="bg-stone-50 border border-stone-200 rounded-xl p-4 space-y-3">
+                                <span class="block text-xs font-semibold uppercase tracking-wider text-stone-800">Fasilitas Tambahan & Kalkulasi Biaya</span>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                    <label class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-stone-200 cursor-pointer hover:border-toraja-gold transition">
+                                        <input type="checkbox" id="add-audio" onchange="calculateTotalCost()" class="w-4 h-4 text-toraja-gold focus:ring-toraja-gold rounded">
+                                        <div class="text-xs">
+                                            <span class="font-bold block text-stone-900">Sound System Pro (+Rp 750k)</span>
+                                            <span class="text-stone-500">Mic wireless & mixer profesional</span>
+                                        </div>
+                                    </label>
+                                    <label class="flex items-center space-x-3 bg-white p-3 rounded-lg border border-stone-200 cursor-pointer hover:border-toraja-gold transition">
+                                        <input type="checkbox" id="add-meja" onchange="calculateTotalCost()" class="w-4 h-4 text-toraja-gold focus:ring-toraja-gold rounded">
+                                        <div class="text-xs">
+                                            <span class="font-bold block text-stone-900">Meja & Kursi VIP (+Rp 500k)</span>
+                                            <span class="text-stone-500">50 set meja & kursi tamu khusus</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                <!-- Estimated Cost Display -->
+                                <div class="mt-3 pt-3 border-t border-stone-200 flex justify-between items-center bg-amber-50/70 p-3 rounded-lg border border-amber-200">
+                                    <span class="text-xs font-bold text-stone-700 uppercase">Estimasi Total Biaya Sewa:</span>
+                                    <span id="estimated-cost-display" class="font-serif text-base font-extrabold text-toraja-darkGold">Rp 0</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Unggah Scan Surat Permohonan (PDF/JPG) *</label>
+                                    <input type="file" id="surat-file" required accept=".pdf,.jpg,.jpeg,.png" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3 py-2 text-xs text-stone-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-toraja-gold file:text-stone-950 hover:file:bg-toraja-darkGold cursor-pointer">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Keterangan Tambahan</label>
+                                <input type="text" id="keterangan" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold transition" placeholder="Catatan khusus (opsional)">
+                            </div>
+
+                            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs text-amber-900 leading-relaxed">
+                                <i class="fa-solid fa-circle-exclamation text-toraja-darkGold mr-1 text-sm"></i>
+                                Tanggal akan otomatis terblokir setelah diverifikasi dan disetujui oleh Admin Kabupaten Tana Toraja.
+                            </div>
+
+                            <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-toraja-gold font-bold py-4 rounded-xl shadow transition flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Kirim Pengajuan Booking</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white border-t border-stone-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row md:items-center justify-between mb-8">
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900">Riwayat Pengajuan Booking Gedung</h3>
+                        <p class="text-stone-500 text-sm mt-1">Daftar pemesanan terbaru yang masuk ke sistem beserta rincian biaya.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0">
+                        <span class="bg-stone-100 text-stone-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-stone-200">
+                            Total Pemesanan: <span id="total-bookings-count">0</span>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-stone-900 text-toraja-gold text-xs font-semibold uppercase tracking-wider">
+                                <th class="py-4 px-6">ID & Tanggal Pengajuan</th>
+                                <th class="py-4 px-6">Pemohon / Instansi</th>
+                                <th class="py-4 px-6">Tanggal Sewa Gedung</th>
+                                <th class="py-4 px-6">Total Biaya & Fasilitas</th>
+                                <th class="py-4 px-6">Surat</th>
+                                <th class="py-4 px-6">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="public-booking-list" class="divide-y divide-stone-200 text-sm text-stone-700 bg-white">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-8 h-8 rounded bg-toraja-gold flex items-center justify-center text-stone-950 font-serif font-bold">
+                                TM
+                            </div>
+                            <span class="font-serif text-lg font-bold text-white">Gedung Tammuan Mali'</span>
+                        </div>
+                        <p class="text-xs text-stone-400 leading-relaxed">
+                            Pemerintah Kabupaten Tana Toraja <br>
+                            Pusat Layanan Konvensi & Acara Resmi Masyarakat Toraja.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-sm font-semibold mb-3 uppercase tracking-wider">Kontak & Lokasi</h4>
+                        <p class="text-xs text-stone-400 leading-relaxed mb-2">
+                            <i class="fa-solid fa-location-dot text-toraja-gold mr-2"></i> Kompleks Perkantoran Pemerintah Kabupaten Tana Toraja, Makale.
+                        </p>
+                        <p class="text-xs text-stone-400 leading-relaxed">
+                            <i class="fa-solid fa-phone text-toraja-gold mr-2"></i> (0423) 21123 / Dinas Terkait
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-sm font-semibold mb-3 uppercase tracking-wider">Jam Layanan Kantor</h4>
+                        <p class="text-xs text-stone-400 leading-relaxed mb-1">Senin - Kamis: 08.00 - 16.00 WITA</p>
+                        <p class="text-xs text-stone-400 leading-relaxed">Jumat: 08.00 - 15.00 WITA</p>
+                    </div>
+                </div>
+                <div class="border-t border-stone-900 pt-6 text-center text-xs text-stone-500">
+                    &copy; 2026 Pemerintah Kabupaten Tana Toraja. All rights reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ADMIN LOGIN & DASHBOARD PAGE VIEW -->
+    <div id="admin-view" class="hidden min-h-screen bg-stone-100 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- ADMIN LOGIN CONTAINER -->
+            <div id="admin-login-card" class="bg-white rounded-2xl shadow-xl max-w-md mx-auto p-8 border border-stone-200 mt-12">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 bg-stone-900 text-toraja-gold rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4 shadow">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h2 class="font-serif text-2xl font-bold text-stone-900">Login Administrator</h2>
+                    <p class="text-xs text-stone-500 mt-1">Masukkan kredensial pengelola Gedung Tammuan Mali'</p>
+                </div>
+
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Username Admin</label>
+                        <input type="text" id="admin-user" required class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold" placeholder="admin_toraja">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-stone-700 mb-1">Password</label>
+                        <input type="password" id="admin-pass" required class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-toraja-gold" placeholder="••••••••">
+                    </div>
+                    <div class="text-xs text-stone-500 bg-amber-50 p-3 rounded-lg border border-amber-200">
+                        <i class="fa-solid fa-circle-info text-toraja-darkGold mr-1"></i> Default User: <strong>admin</strong> | Pass: <strong>toraja2026</strong>
+                    </div>
+                    <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-toraja-gold font-bold py-3.5 rounded-xl transition text-sm shadow">
+                        Masuk Dashboard Admin
+                    </button>
+                    <div class="text-center pt-2">
+                        <a href="javascript:void(0)" onclick="returnToFrontend()" class="text-xs text-stone-600 hover:text-toraja-darkGold underline font-medium">
+                            &larr; Kembali ke Beranda Website
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ADMIN DASHBOARD CONTAINER -->
+            <div id="admin-dashboard-card" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-8 border border-stone-200">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-6 mb-6 border-b border-stone-200 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-12 h-12 rounded-xl bg-toraja-gold text-stone-950 font-bold flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <h2 class="font-serif text-xl font-bold text-stone-900">Dashboard Verifikasi Booking & Surat</h2>
+                            <p class="text-xs text-stone-500">Semua fitur terbuka: periksa surat permohonan, setujui atau tolak, serta blokir tanggal otomatis gedung.</p>
+                        </div>
+                    </div>
+                    <div class="flex space-x-3">
+                        <button onclick="clearAllBookings()" class="bg-red-50 hover:bg-red-100 text-red-700 text-xs font-semibold px-4 py-2.5 rounded-xl border border-red-200 transition">
+                            <i class="fa-solid fa-trash-can mr-1"></i> Kosongkan Data
+                        </button>
+                        <button onclick="handleAdminLogout()" class="bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition">
+                            <i class="fa-solid fa-right-from-bracket mr-1"></i> Keluar Admin
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Admin Booking List Table -->
+                <div class="overflow-x-auto rounded-xl border border-stone-200">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-stone-900 text-toraja-gold text-xs font-semibold uppercase tracking-wider">
+                            <tr>
+                                <th class="py-3.5 px-4">ID & Tanggal</th>
+                                <th class="py-3.5 px-4">Pemohon / Instansi</th>
+                                <th class="py-3.5 px-4">Tanggal Sewa</th>
+                                <th class="py-3.5 px-4">Total Biaya</th>
+                                <th class="py-3.5 px-4">Surat</th>
+                                <th class="py-3.5 px-4">Status</th>
+                                <th class="py-3.5 px-4 text-center">Aksi Verifikasi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-booking-list" class="divide-y divide-stone-200 text-xs text-stone-700 bg-white">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mt-6 flex justify-between items-center">
+                    <a href="javascript:void(0)" onclick="returnToFrontend()" class="text-xs text-stone-700 hover:text-toraja-darkGold font-semibold flex items-center">
+                        <i class="fa-solid fa-arrow-left mr-2"></i> Lihat Tampilan Website Publik
+                    </a>
+                    <span class="text-xs text-stone-400">Sistem Admin Gedung Tammuan Mali'</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FORMAT SURAT TEMPLATE MODAL -->
+    <div id="template-modal" class="fixed inset-0 z-50 hidden bg-stone-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-2xl p-6 sm:p-8 border border-stone-200">
+            <div class="flex justify-between items-center pb-4 mb-4 border-b border-stone-200">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-lg bg-amber-100 text-toraja-darkGold flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-lg font-bold text-stone-900">Format & Contoh Surat Permohonan</h3>
+                        <p class="text-xs text-stone-500">Peminjaman Gedung Tammuan Mali' Tana Toraja</p>
+                    </div>
+                </div>
+                <button onclick="closeTemplateModal()" class="text-stone-400 hover:text-stone-700 p-2">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 text-xs text-stone-700 space-y-3 mb-6 font-mono leading-relaxed">
+                <p class="text-center font-bold font-sans text-stone-900 text-sm">SURAT PERMOHONAN PEMINJAMAN GEDUNG<br>TAMMUAN MALI' KABUPATEN TANA TORAJA</p>
+                <hr class="border-stone-300">
+                <p>Makale, [Tanggal Pengajuan]</p>
+                <p>Kepada Yth.<br>Pengelola Gedung Tammuan Mali'<br>di - Makale</p>
+                <p>Dengan hormat,<br>Yang bertanda tangan di bawah ini:<br>
+                   Nama: [Nama Penanggung Jawab]<br>
+                   Jabatan / Instansi: [Nama Instansi / Organisasi]<br>
+                   No. Telp / WhatsApp: [Nomor HP]</p>
+                <p>Dengan ini mengajukan permohonan peminjaman Gedung Tammuan Mali' Kabupaten Tana Toraja untuk keperluan Acara [Nama Acara] pada:</p>
+                <p>Tanggal Mulai: [Tanggal Mulai]<br>Tanggal Selesai: [Tanggal Selesai]</p>
+                <p>Demikian surat permohonan ini kami sampaikan atas perhatian dan kerjasamanya kami ucapkan terima kasih.</p>
+                <p class="pt-4 text-right">Hormat kami,<br><br><br><strong>[Nama Pemohon]</strong></p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3">
+                <button onclick="downloadTemplateDoc()" class="flex-1 bg-toraja-gold hover:bg-toraja-darkGold text-stone-950 font-bold py-3 rounded-xl transition text-xs flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download Contoh Format (TXT)</span>
+                </button>
+                <button onclick="closeTemplateModal()" class="bg-stone-900 hover:bg-stone-800 text-white font-semibold px-6 py-3 rounded-xl transition text-xs">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERAL NOTIFICATION MODAL -->
+    <div id="notification-modal" class="fixed inset-0 z-50 hidden bg-stone-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-xl w-full max-w-md p-6 text-center border border-stone-200">
+            <div id="modal-icon" class="w-16 h-16 rounded-full bg-amber-100 text-toraja-darkGold text-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="modal-title" class="font-serif text-xl font-bold text-stone-900 mb-2">Pemberitahuan</h3>
+            <p id="modal-message" class="text-stone-600 text-sm mb-6 leading-relaxed">Pesan notifikasi sistem.</p>
+            <button onclick="closeNotificationModal()" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-semibold py-3 rounded-xl transition text-sm">Mengerti</button>
+        </div>
+    </div>
+
+    <script>
+        // Pricing constants
+        const DAILY_RATE = 3500000; // Rp 3.500.000 per hari
+        const AUDIO_RATE = 750000;  // Rp 750.000 tambahan sound pro
+        const MEJA_RATE = 500000;   // Rp 500.000 tambahan meja & kursi VIP
+
+        // State Management for Bookings
+        let bookings = JSON.parse(localStorage.getItem('toraja_gedung_bookings')) || [
+            {
+                id: 'TM-2026-001',
+                pemohon: 'Drs. Yermia Tandirerung',
+                instansi: 'Pemerintah Daerah Tana Toraja',
+                tujuan: 'Rapat Paripurna / Kedinasan',
+                startDate: '2026-04-10',
+                endDate: '2026-04-12',
+                phone: '0811422112',
+                audio: true,
+                meja: false,
+                totalCost: 3500000 * 3 + 750000,
+                keterangan: 'Rapat Paripurna DPRD',
+                fileName: 'Surat_Permohonan_DPRD.pdf',
+                status: 'Disetujui',
+                createdAt: '2026-03-01'
+            },
+            {
+                id: 'TM-2026-002',
+                pemohon: 'Cornelius Rantetondok',
+                instansi: 'Keluarga Besar Rantetondok',
+                tujuan: 'Resepsi Pernikahan',
+                startDate: '2026-04-18',
+                endDate: '2026-04-19',
+                phone: '082199887766',
+                audio: true,
+                meja: true,
+                totalCost: 3500000 * 2 + 750000 + 500000,
+                keterangan: 'Resepsi Pernikahan',
+                fileName: 'Surat_Nikah_Cornelius.jpg',
+                status: 'Disetujui',
+                createdAt: '2026-03-05'
+            }
+        ];
+
+        let isAdminLoggedIn = localStorage.getItem('toraja_admin_auth') === 'true';
+
+        // Calendar Date Picker State
+        let currentDate = new Date();
+        let selectedStartDate = null;
+        let selectedEndDate = null;
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize App on Load
+        window.onload = function() {
+            renderCalendar();
+            renderBookingsTable();
+            calculateTotalCost();
+        };
+
+        // Save Bookings to LocalStorage
+        function saveBookings() {
+            localStorage.setItem('toraja_gedung_bookings', JSON.stringify(bookings));
+            renderCalendar();
+            renderBookingsTable();
+            if (isAdminLoggedIn) renderAdminTable();
+        }
+
+        // Get all blocked dates (only dates from 'Disetujui' bookings are blocked)
+        function getBlockedDates() {
+            let blocked = new Set();
+            bookings.forEach(b => {
+                if (b.status === 'Disetujui') {
+                    let start = new Date(b.startDate);
+                    let end = new Date(b.endDate);
+                    let current = new Date(start);
+                    while (current <= end) {
+                        blocked.add(current.toISOString().split('T')[0]);
+                        current.setDate(current.getDate() + 1);
+                    }
+                }
+            });
+            return blocked;
+        }
+
+        // Render Calendar Function
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+
+            const monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+            const monthYearEl = document.getElementById('calendar-month-year');
+            if (monthYearEl) monthYearEl.innerText = `${monthNames[month]} ${year}`;
+
+            const firstDayIndex = new Date(year, month, 1).getDay();
+            const lastDay = new Date(year, month + 1, 0).getDate();
+
+            const daysContainer = document.getElementById('calendar-days');
+            if (!daysContainer) return;
+            daysContainer.innerHTML = '';
+
+            const blockedDates = getBlockedDates();
+
+            for (let i = 0; i < firstDayIndex; i++) {
+                const emptyDiv = document.createElement('div');
+                daysContainer.appendChild(emptyDiv);
+            }
+
+            for (let day = 1; day <= lastDay; day++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const dayDiv = document.createElement('div');
+                dayDiv.className = "aspect-square flex items-center justify-center rounded-xl text-xs sm:text-sm font-medium transition cursor-pointer relative select-none";
+
+                let isBlocked = blockedDates.has(dateStr);
+                let isPast = new Date(dateStr) < new Date().setHours(0,0,0,0);
+                let isSelectedStart = selectedStartDate === dateStr;
+                let isSelectedEnd = selectedEndDate === dateStr;
+                let isInRange = selectedStartDate && selectedEndDate && dateStr > selectedStartDate && dateStr < selectedEndDate;
+
+                if (isPast) {
+                    dayDiv.classList.add('bg-stone-100', 'text-stone-300', 'cursor-not-allowed');
+                    dayDiv.innerText = day;
+                } else if (isBlocked) {
+                    dayDiv.classList.add('bg-red-100', 'text-red-700', 'border', 'border-red-300', 'cursor-not-allowed', 'font-bold');
+                    dayDiv.title = 'Tanggal sudah ter-booking';
+                    dayDiv.innerHTML = `${day} <span class="absolute bottom-1 w-1 h-1 rounded-full bg-red-600"></span>`;
+                } else if (isSelectedStart || isSelectedEnd) {
+                    dayDiv.classList.add('bg-toraja-gold', 'text-stone-950', 'font-bold', 'shadow-md');
+                    dayDiv.innerText = day;
+                } else if (isInRange) {
+                    dayDiv.classList.add('bg-amber-100', 'text-amber-900');
+                    dayDiv.innerText = day;
+                } else {
+                    dayDiv.classList.add('bg-stone-50', 'hover:bg-amber-50', 'text-stone-800', 'border', 'border-stone-200');
+                    dayDiv.innerText = day;
+                    dayDiv.onclick = () => handleDateClick(dateStr);
+                }
+
+                daysContainer.appendChild(dayDiv);
+            }
+        }
+
+        function changeMonth(direction) {
+            currentDate.setMonth(currentDate.getMonth() + direction);
+            renderCalendar();
+        }
+
+        function handleDateClick(dateStr) {
+            const blockedDates = getBlockedDates();
+            if (blockedDates.has(dateStr)) return;
+
+            if (!selectedStartDate || (selectedStartDate && selectedEndDate)) {
+                selectedStartDate = dateStr;
+                selectedEndDate = null;
+            } else if (selectedStartDate && !selectedEndDate) {
+                if (dateStr < selectedStartDate) {
+                    selectedStartDate = dateStr;
+                } else {
+                    selectedEndDate = dateStr;
+                }
+            }
+
+            document.getElementById('start-date').value = selectedStartDate || '';
+            document.getElementById('end-date').value = selectedEndDate || '';
+            renderCalendar();
+            calculateTotalCost();
+        }
+
+        function onManualDateChange() {
+            const startVal = document.getElementById('start-date').value;
+            const endVal = document.getElementById('end-date').value;
+
+            if (startVal) selectedStartDate = startVal;
+            if (endVal) selectedEndDate = endVal;
+
+            renderCalendar();
+            calculateTotalCost();
+        }
+
+        function resetSelectedDates() {
+            selectedStartDate = null;
+            selectedEndDate = null;
+            document.getElementById('start-date').value = '';
+            document.getElementById('end-date').value = '';
+            renderCalendar();
+            calculateTotalCost();
+        }
+
+        // Calculate Cost Function
+        function calculateTotalCost() {
+            const startStr = document.getElementById('start-date').value;
+            const endStr = document.getElementById('end-date').value;
+            const addAudio = document.getElementById('add-audio').checked;
+            const addMeja = document.getElementById('add-meja').checked;
+
+            if (!startStr || !endStr) {
+                document.getElementById('estimated-cost-display').innerText = 'Rp 0 (Pilih Tanggal Mulai & Selesai)';
+                return 0;
+            }
+
+            let start = new Date(startStr);
+            let end = new Date(endStr);
+            let diffTime = end - start;
+            let diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+            if (diffDays <= 0) {
+                diffDays = 1;
+            }
+
+            let buildingCost = diffDays * DAILY_RATE;
+            let audioCost = addAudio ? AUDIO_RATE : 0;
+            let mejaCost = addMeja ? MEJA_RATE : 0;
+            let total = buildingCost + audioCost + mejaCost;
+
+            document.getElementById('estimated-cost-display').innerText = formatRupiah(total) + ` (${diffDays} Hari)`;
+            return total;
+        }
+
+        function formatRupiah(number) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(number);
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const pemohon = document.getElementById('pemohon').value.trim();
+            const instansi = document.getElementById('instansi').value.trim();
+            const tujuan = document.getElementById('tujuan-kegiatan').value;
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const phone = document.getElementById('phone').value.trim();
+            const audio = document.getElementById('add-audio').checked;
+            const meja = document.getElementById('add-meja').checked;
+            const fileInput = document.getElementById('surat-file');
+            const keterangan = document.getElementById('keterangan').value.trim();
+
+            if (!startDate || !endDate) {
+                showCustomModal("Peringatan", "Silakan pilih tanggal mulai dan selesai terlebih dahulu.", "warning");
+                return;
+            }
+
+            if (!tujuan) {
+                showCustomModal("Peringatan", "Silakan pilih tujuan kegiatan terlebih dahulu.", "warning");
+                return;
+            }
+
+            let startObj = new Date(startDate);
+            let endObj = new Date(endDate);
+            if (endObj < startObj) {
+                showCustomModal("Tanggal Tidak Valid", "Tanggal selesai tidak boleh lebih awal dari tanggal mulai.", "warning");
+                return;
+            }
+
+            let diffDays = Math.ceil(Math.abs(endObj - startObj) / (1000 * 60 * 60 * 24)) + 1;
+            const totalCost = calculateTotalCost();
+            const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'surat_permohonan.pdf';
+
+            const newBooking = {
+                id: 'TM-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 900) + 100),
+                pemohon,
+                instansi,
+                tujuan,
+                startDate,
+                endDate,
+                phone,
+                audio,
+                meja,
+                totalCost,
+                keterangan: keterangan || 'Peminjaman Gedung',
+                fileName,
+                status: 'Menunggu',
+                createdAt: new Date().toISOString().split('T')[0]
+            };
+
+            bookings.unshift(newBooking);
+            saveBookings();
+
+            document.getElementById('booking-form').reset();
+            resetSelectedDates();
+            calculateTotalCost();
+
+            showCustomModal("Berhasil Diajukan!", `Pengajuan booking ID ${newBooking.id} untuk kegiatan "${tujuan}" berhasil dikirim. Admin akan memeriksa dan memverifikasi permohonan Anda.`, "success");
+        }
+
+        function renderBookingsTable() {
+            const tbody = document.getElementById('public-booking-list');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+            document.getElementById('total-bookings-count').innerText = bookings.length;
+
+            if (bookings.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-stone-400">Belum ada riwayat booking.</td></tr>`;
+                return;
+            }
+
+            bookings.forEach(b => {
+                let badgeClass = 'bg-amber-100 text-amber-800 border-amber-300';
+                if (b.status === 'Disetujui') badgeClass = 'bg-emerald-100 text-emerald-800 border-emerald-300';
+                if (b.status === 'Ditolak') badgeClass = 'bg-red-100 text-red-800 border-red-300';
+
+                let addOnsHtml = '';
+                if (b.audio) addOnsHtml += `<span class="inline-block bg-amber-50 text-toraja-darkGold text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200 mr-1">+ Sound Pro</span>`;
+                if (b.meja) addOnsHtml += `<span class="inline-block bg-amber-50 text-toraja-darkGold text-[10px] font-semibold px-2 py-0.5 rounded border border-amber-200">+ Meja VIP</span>`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="py-4 px-6 font-medium text-stone-900">
+                        <span class="block text-xs font-bold text-toraja-darkGold">${b.id}</span>
+                        <span class="text-xs text-stone-400">${b.createdAt}</span>
+                    </td>
+                    <td class="py-4 px-6">
+                        <span class="block font-semibold">${b.pemohon}</span>
+                        <span class="text-xs text-stone-500">${b.instansi}</span>
+                        <span class="block text-xs font-medium text-toraja-darkGold mt-0.5"><i class="fa-solid fa-bookmark mr-1"></i> ${b.tujuan || 'Kegiatan Umum'}</span>
+                    </td>
+                    <td class="py-4 px-6 text-xs">
+                        <div class="font-medium"><i class="fa-solid fa-calendar text-toraja-darkGold mr-1"></i> ${b.startDate} s/d ${b.endDate}</div>
+                    </td>
+                    <td class="py-4 px-6 text-xs">
+                        <div class="font-bold text-toraja-darkGold">${formatRupiah(b.totalCost || 3500000)}</div>
+                        <div class="mt-1">${addOnsHtml || '<span class="text-stone-400">Sewa Standar</span>'}</div>
+                    </td>
+                    <td class="py-4 px-6 text-xs text-stone-600">
+                        <span class="inline-flex items-center space-x-1 bg-stone-100 px-2.5 py-1 rounded-md border border-stone-200 truncate max-w-[140px]" title="${b.fileName || 'Surat.pdf'}">
+                            <i class="fa-solid fa-file-pdf text-red-600 mr-1"></i>
+                            <span class="truncate">${b.fileName || 'Surat.pdf'}</span>
+                        </span>
+                    </td>
+                    <td class="py-4 px-6">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-semibold border ${badgeClass}">${b.status}</span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Dedicated Admin Page View Control
+        function openAdminModal() {
+            document.getElementById('frontend-view').classList.add('hidden');
+            document.getElementById('admin-view').classList.remove('hidden');
+            if (isAdminLoggedIn) {
+                document.getElementById('admin-login-card').classList.add('hidden');
+                document.getElementById('admin-dashboard-card').classList.remove('hidden');
+                renderAdminTable();
+            } else {
+                document.getElementById('admin-login-card').classList.remove('hidden');
+                document.getElementById('admin-dashboard-card').classList.add('hidden');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function returnToFrontend() {
+            document.getElementById('admin-view').classList.add('hidden');
+            document.getElementById('frontend-view').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const u = document.getElementById('admin-user').value.trim();
+            const p = document.getElementById('admin-pass').value.trim();
+
+            if (u === 'admin' && p === 'toraja2026') {
+                isAdminLoggedIn = true;
+                localStorage.setItem('toraja_admin_auth', 'true');
+                document.getElementById('admin-login-card').classList.add('hidden');
+                document.getElementById('admin-dashboard-card').classList.remove('hidden');
+                renderAdminTable();
+                showCustomModal("Login Berhasil", "Selamat datang di Panel Verifikasi Admin Tammuan Mali'. Semua fitur kelola kini terbuka sepenuhnya.", "success");
+            } else {
+                showCustomModal("Login Gagal", "Username atau Password admin tidak valid! Gunakan admin / toraja2026", "warning");
+            }
+        }
+
+        function handleAdminLogout() {
+            isAdminLoggedIn = false;
+            localStorage.removeItem('toraja_admin_auth');
+            document.getElementById('admin-dashboard-card').classList.add('hidden');
+            document.getElementById('admin-login-card').classList.remove('hidden');
+            showCustomModal("Keluar", "Anda telah keluar dari sesi admin.", "success");
+        }
+
+        function renderAdminTable() {
+            const tbody = document.getElementById('admin-booking-list');
+            if (!tbody) return;
+            tbody.innerHTML = '';
+
+            if (bookings.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="py-6 text-center text-stone-400">Tidak ada data booking.</td></tr>`;
+                return;
+            }
+
+            bookings.forEach((b, index) => {
+                let badgeClass = 'bg-amber-100 text-amber-800';
+                if (b.status === 'Disetujui') badgeClass = 'bg-emerald-100 text-emerald-800';
+                if (b.status === 'Ditolak') badgeClass = 'bg-red-100 text-red-800';
+
+                let addOnsHtml = '';
+                if (b.audio) addOnsHtml += `<span class="inline-block bg-amber-50 text-toraja-darkGold text-[10px] font-semibold px-1.5 py-0.5 rounded border border-amber-200 mr-1">+ Audio</span>`;
+                if (b.meja) addOnsHtml += `<span class="inline-block bg-amber-50 text-toraja-darkGold text-[10px] font-semibold px-1.5 py-0.5 rounded border border-amber-200">+ Meja VIP</span>`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-semibold text-stone-900">
+                        <span class="text-toraja-darkGold text-xs font-bold">${b.id}</span>
+                        <span class="block text-xs font-normal text-stone-400">${b.createdAt}</span>
+                    </td>
+                    <td class="py-3 px-4">
+                        <span class="font-bold">${b.pemohon}</span>
+                        <span class="block text-xs text-stone-500">${b.instansi}</span>
+                        <span class="block text-xs font-medium text-toraja-darkGold">Tujuan: ${b.tujuan || '-'}</span>
+                    </td>
+                    <td class="py-3 px-4 text-xs">
+                        <div><i class="fa-solid fa-calendar mr-1 text-toraja-darkGold"></i> ${b.startDate} s/d ${b.endDate}</div>
+                    </td>
+                    <td class="py-3 px-4 text-xs">
+                        <div class="font-bold text-toraja-darkGold">${formatRupiah(b.totalCost || 3500000)}</div>
+                        <div class="mt-0.5">${addOnsHtml || '<span class="text-stone-400">Standar</span>'}</div>
+                    </td>
+                    <td class="py-3 px-4 text-xs">
+                        <button onclick="previewLetter('${b.fileName || 'Surat Permohonan'}')" class="text-toraja-darkGold hover:underline font-semibold flex items-center">
+                            <i class="fa-solid fa-file-arrow-down mr-1"></i> ${b.fileName || 'Lihat Surat'}
+                        </button>
+                    </td>
+                    <td class="py-3 px-4">
+                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold ${badgeClass}">${b.status}</span>
+                    </td>
+                    <td class="py-3 px-4 text-center space-x-1">
+                        ${b.status !== 'Disetujui' ? `<button onclick="updateStatus(${index}, 'Disetujui')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1.5 rounded-lg text-xs transition shadow-sm font-medium" title="Setujui & Blokir Kalender"><i class="fa-solid fa-check mr-1"></i> Setujui</button>` : ''}
+                        ${b.status !== 'Ditolak' ? `<button onclick="updateStatus(${index}, 'Ditolak')" class="bg-amber-600 hover:bg-amber-700 text-white px-2.5 py-1.5 rounded-lg text-xs transition shadow-sm font-medium" title="Tolak"><i class="fa-solid fa-xmark mr-1"></i> Tolak</button>` : ''}
+                        <button onclick="deleteBooking(${index})" class="bg-red-600 hover:bg-red-700 text-white px-2 py-1.5 rounded-lg text-xs transition shadow-sm" title="Hapus"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function previewLetter(fileName) {
+            showCustomModal("Verifikasi Dokumen Surat", `Membuka lampiran scan surat: "${fileName}". Dokumen valid dan siap diverifikasi.`, "success");
+        }
+
+        function updateStatus(index, newStatus) {
+            bookings[index].status = newStatus;
+            saveBookings();
+            renderAdminTable();
+            showCustomModal("Status Diperbarui", `Pengajuan booking ${bookings[index].id} berhasil diubah menjadi: ${newStatus}.`, "success");
+        }
+
+        function deleteBooking(index) {
+            if (confirm("Apakah Anda yakin ingin menghapus pengajuan booking ini?")) {
+                bookings.splice(index, 1);
+                saveBookings();
+                renderAdminTable();
+            }
+        }
+
+        function clearAllBookings() {
+            if (confirm("PERINGATAN: Tindakan ini akan menghapus seluruh data riwayat booking dan mengosongkan kalender. Lanjutkan?")) {
+                bookings = [];
+                saveBookings();
+                renderAdminTable();
+            }
+        }
+
+        function openTemplateModal() {
+            document.getElementById('template-modal').classList.remove('hidden');
+        }
+
+        function closeTemplateModal() {
+            document.getElementById('template-modal').classList.add('hidden');
+        }
+
+        function downloadTemplateDoc() {
+            const templateText = `SURAT PERMOHONAN PEMINJAMAN GEDUNG TAMMUAN MALI' KABUPATEN TANA TORAJA\n\nMakale, [Tanggal]\nKepada Yth. Pengelola Gedung Tammuan Mali' di Makale.\n\nDengan hormat, yang bertanda tangan di bawah ini:\nNama: \nJabatan/Instansi: \nNo HP/WhatsApp: \n\nDengan ini mengajukan permohonan peminjaman Gedung Tammuan Mali' Kabupaten Tana Toraja untuk acara [Nama Acara] yang akan dilaksanakan pada tanggal [Mulai] sampai dengan [Selesai].\n\nDemikian surat permohonan ini kami sampaikan.\n\nHormat kami,\n[Tanda Tangan & Nama Jelas]`;
+            const blob = new Blob([templateText], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Format_Surat_Permohonan_Gedung_Tammuan_Mali.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            closeTemplateModal();
+            showCustomModal("Berhasil Diunduh", "Format surat permohonan berhasil diunduh.", "success");
+        }
+
+        function showCustomModal(title, message, type = "success") {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-message').innerText = message;
+            const iconContainer = document.getElementById('modal-icon');
+            if (type === "success") {
+                iconContainer.className = "w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 text-2xl flex items-center justify-center mx-auto mb-4";
+                iconContainer.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            } else {
+                iconContainer.className = "w-16 h-16 rounded-full bg-amber-100 text-toraja-darkGold text-2xl flex items-center justify-center mx-auto mb-4";
+                iconContainer.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+            }
+            document.getElementById('notification-modal').classList.remove('hidden');
+        }
+
+        function closeNotificationModal() {
+            document.getElementById('notification-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
